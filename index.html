@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <!-- coding by @helpme_coder -->
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smoke heart</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const music = new Audio("https://cdn.pixabay.com/audio/2023/03/27/audio_dfdce54637.mp3");
+    music.loop = true;
+    music.volume = 0.6;
+    
+    // Try autoplaying after slight timeout
+    setTimeout(() => {
+      music.play().catch((err) => {
+        console.log("Autoplay blocked 😢", err);
+      });
+    }, 1000);
+  });
+</script>
+
+  </head>
+  <body>
+    <canvas id="heart"></canvas>
+
+<!-- Left Text -->
+<div class="smoke smoke-left">
+  <span>Oyee</span>
+  <span>&nbsp;</span>
+  <span>Sarvi,</span>
+  <span>&nbsp;</span>
+  <span>Sunoo Yrr</span>
+</div>
+
+<!-- Right Text -->
+<div class="smoke smoke-right">
+  <span>Kuch</span>
+  <span>&nbsp;</span>
+  <span>Batana</span>
+  <span>&nbsp;</span>
+  <span>tha mujhe</span>
+</div>
+
+
+    <script src="script.js"></script>
+    <a href="index2.html" class="next-button">Next ➜</a>
+   <audio id="bg-music" preload="auto" loop>
+  <source src="https://cdn.pixabay.com/audio/2023/03/27/audio_dfdce54637.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+
+<!-- Floating hearts -->
+<div class="love-wrapper">
+  <div class="floating-heart heart1"></div>
+  <div class="floating-heart heart2"></div>
+  <div class="floating-heart heart3"></div>
+</div>
+<script>
+   for (let i = 0; i < 30; i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.setProperty('--x', Math.random());
+    heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+    document.body.appendChild(heart);
+  }
+</script>
+<script>
+  window.addEventListener('click', function playMusicOnce() {
+    const music = document.getElementById('bg-music');
+    if (music.paused) {
+      music.play().catch(e => {
+        console.log("Autoplay failed:", e);
+      });
+    }
+    window.removeEventListener('click', playMusicOnce); // play only once
+  });
+</script>
+
+
+  </body>
+</html>

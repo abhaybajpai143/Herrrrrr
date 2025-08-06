@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will You Be Mine?</title>
+  <link rel="stylesheet" href="styles2.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="photo-container">
+  <img src="Uss.jpg" alt="Us ❤️" class="us-pic">
+</div>
+
+  <div class="container">
+    <div class="text-box">
+      <h1 class="header_text">Hey Sarvi, Will you be the moon of my nights?</h1>
+      <h2 class="header_subtext shout-love">I LOVEEEEEE U SARUUUU💖</h2>
+      <h1 class="header_text">Will You Be My One and only Luv for for Forever?</h1>
+    </div>
+    
+
+
+    <div class="gif_container">
+      <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3lvMWF4OG8yc3p6Ymdvd3g2d245amdveDhyYmx6eCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute animated illustration">
+    </div>
+    <p class="dedication-line">
+  I spent hours making this just to win your heart, Sarvi 💘👑✨
+</p>
+
+
+    <div class="buttons">
+      <button class="btn yes" id="yesButton" onclick="nextPage()">Yes, forever 💖</button>
+      <button class="btn no" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No 😢 (Ek baar click krke batao)</button>
+    </div>
+  </div>
+  <!-- Music -->
+<audio id="bg-music" loop>
+  <source src="Thoda_Thoda_Pyar.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+
+<!-- Button to start music -->
+<button id="play-music-btn" style="
+  position: fixed;
+  top: 50px;
+  right: 20px;
+  z-index: 999;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  background: #ff69b4;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 0 10px pink;
+">
+  💖 Click to Start the Vibes 💖
+</button>
+
+
+  <script>
+    function nextPage() {
+      window.location.href = "flower.html";
+    }
+
+    function moveButton() {
+  const button = document.getElementById('noButton');
+  const buttonWidth = button.offsetWidth;
+  const buttonHeight = button.offsetHeight;
+  const padding = 20; // margin from edges
+
+  // Calculate maximum allowed positions
+  const maxX = window.innerWidth - buttonWidth - padding;
+  const maxY = window.innerHeight - buttonHeight - padding;
+
+  // Generate random positions within bounds
+  const x = Math.max(0, Math.random() * maxX);
+  const y = Math.max(0, Math.random() * maxY);
+
+  button.style.position = 'absolute';
+  button.style.left = `${x}px`;
+  button.style.top = `${y}px`;
+}
+    for (let i = 0; i < 30; i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.setProperty('--x', Math.random());
+    heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+    document.body.appendChild(heart);
+  }
+  </script>
+  <audio id="bg-music" autoplay loop>
+  <source src="Thoda_Thoda_Pyar.mp3" type="audio/mp3">
+  Your browser does not support the audio element.
+</audio>
+<script>
+  const btn = document.getElementById('play-music-btn');
+  const music = document.getElementById('bg-music');
+
+  btn.addEventListener('click', () => {
+    music.play().then(() => {
+      console.log("Music started!");
+      btn.style.display = 'none'; // hide button after starting
+    }).catch((err) => {
+      console.error("Playback failed:", err);
+    });
+  });
+</script>
+
+
+<div class="love-meter-vertical">
+  <span class="heart h1">❤️</span>
+  <span class="heart h2">❤️</span>
+  <span class="heart h3">❤️</span>
+  <span class="heart h4">❤️</span>
+  <span class="heart h5">❤️</span>
+</div>
+<div class="love-label">Love Level: 100%</div>
+
+
+</body>
+</html>
